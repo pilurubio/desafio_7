@@ -1,0 +1,56 @@
+//reseteo
+*{
+    margin: 0;
+    padding: 0;
+}
+
+//fuentes
+@font-face { 
+    font-family: 'Bebas Neue'; 
+    src: url(assets/fonts/BebasNeue-Regular.ttf); 
+} 
+
+//variables
+$amarillo: #f3e500;
+$amarillo-transparencia: rgba(243, 229, 0, 0.5);
+$azul: #243746;
+$azul-oscuro: #131e29;
+$blanco: rgb(250, 250, 250);
+$blanco-transparencia: rgba(250, 250, 250, 0.90);
+$gris: rgb(220, 220, 220);
+$font-titulos: 'Bebas Neue';
+$font-subtitulos: 'Averia Serif Libre';
+$font-textos: 'Montserrat';
+
+//mixins
+@mixin secciones{
+	padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+//mapas
+$titulo-seccion: (
+    familia: $font-titulos,
+    peso: normal,
+    tamaño: 50pt,
+    espaciado: 7pt,
+    color: $azul,
+    borde: solid $amarillo 85px,
+    arriba: 5px,
+    izquierda: 15px,
+);
+
+$subtitulo-seccion: (
+    familia: $font-subtitulos,
+    peso: 400,
+    tamaño: 22pt,
+    color: $azul,
+    arriba: 20px,
+    izquierda: 100px,
+);
+
+//estilos generales
+body{
+    background-color: $blanco;
+}

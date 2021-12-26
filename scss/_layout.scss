@@ -1,0 +1,458 @@
+// estilos header
+    
+header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    padding: 25px 100px;
+    background-color: $blanco-transparencia;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}        
+
+.logo-navegador{
+    height: 110px;
+    width: 110px;
+}
+
+.mi-navegador{
+    display: flex;
+    justify-content: flex-end;
+    
+        .mi-width{
+            width: max-content !important;
+        }
+
+}
+
+.desplegable{
+    position: absolute;
+    top: 50;
+    right: 0;
+    background-color: $blanco;
+}
+
+.mis-items{
+    padding: 5px 10px;
+}
+
+.mis-links{
+    text-decoration: none;
+    font-family: $font-textos;
+    font-weight: 300;
+    font-size: 13pt;
+    letter-spacing: 3pt;
+    color: $azul !important;
+    text-align: center;
+    padding: 5px 3px 3px 7px !important;
+    margin: 10px 0px;
+
+        &:hover{
+            background-color: $amarillo;
+        }
+
+} 
+
+.submenu{
+    @extend .mis-links;
+    font-size: 11.5pt;
+    padding: 5px !important;
+    margin: 0px;
+} 
+
+.submenu-todo{
+    @extend .submenu;
+    font-size: 11pt;
+}
+
+
+// estilos inicio
+
+#inicio{
+    background-image: url(../assets/img/principal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    margin-top: 80px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+        .titulo{
+            font-family: $font-titulos;
+            font-weight: normal;
+            font-size: 150pt;
+            letter-spacing: 30pt;
+            line-height: 150pt;
+            color: $blanco-transparencia;
+            text-align: center;
+        } 
+
+        .destacado{
+            font-family: $font-textos;
+            font-weight: 200;
+            font-size: 25pt;
+            letter-spacing: 7pt;
+            line-height: 35pt;
+            color: $blanco;
+            text-align: center;
+            
+                .resaltado{
+                    color: $azul;
+                    background-color: $amarillo;
+                } 
+        
+        } 
+        
+} 
+
+
+// estilos nosotros
+
+#nosotros{
+    @include secciones;
+}
+
+h2{
+    font-family: map-get($titulo-seccion, familia);
+    font-weight: map-get($titulo-seccion, peso);
+    font-size: map-get($titulo-seccion, tamaño);
+    letter-spacing: map-get($titulo-seccion, espaciado);
+    color: map-get($titulo-seccion, color);
+    border-left: map-get($titulo-seccion, borde);
+    padding-top: map-get($titulo-seccion, arriba);
+    padding-left: map-get($titulo-seccion, izquierda);
+}
+
+h3{
+    font-family: map-get($subtitulo-seccion, familia);
+    font-weight: map-get($subtitulo-seccion, peso);
+    font-size: map-get($subtitulo-seccion, tamaño);
+    color: map-get($subtitulo-seccion, color);
+    margin-top: map-get($subtitulo-seccion, arriba);
+    margin-left: map-get($subtitulo-seccion, izquierda);
+
+        .subrayado{
+            text-decoration: underline;
+            text-underline-position: under;
+            text-decoration-color: $amarillo;
+            text-decoration-thickness: 5px;
+        }
+
+}
+
+.grilla-nosotros{
+    margin: 50px 100px 0px;
+    display: grid;
+    grid-template-areas:
+        "texto foto";
+    grid-template-columns: 40% auto;
+    column-gap: 100px;
+    align-items: center;
+
+        .texto-nosotros{
+            grid-area: texto;
+            font-family: $font-textos;
+            font-weight: 300;
+            font-size: 12pt;
+            letter-spacing: 1.5pt;
+            word-spacing: 2pt;
+            line-height: 18pt;
+            color: $azul;
+        }
+    
+        .foto-nosotros{
+            grid-area: foto;
+
+                .foto-guia{
+                    width: 100%;
+                    transition: all 1s;
+                    
+                        &:hover{
+                            transform: scale(1.05);
+                        }
+            
+                }
+            
+        }
+
+}
+
+
+// estilos galeria
+
+#galeria{
+    @include secciones;
+}
+
+.grilla-galeria{
+    margin: 100px 200px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 30px;
+
+        .div-galeria{
+            cursor: pointer;
+            transition: all 1s;
+
+                &:hover{
+                    transform: scale(1.1);
+                }
+
+                .foto-galeria{
+                    width: 100%;
+                    overflow-x: hidden;
+                    overflow-y: hidden;
+                }
+
+        }
+
+}
+
+.mi-carrusel{
+    height: calc(100vh - 400px);
+}
+
+.botonera-fotos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+        .boton1{
+            border: none;
+            border-radius: 0;
+            font-family: $font-titulos;
+            font-size: 15pt;
+            letter-spacing: 5pt;
+            text-align: center;
+            color: $blanco;
+            background-color: $gris;
+            cursor: pointer;
+            padding: 5px 3px 3px 10px;
+            margin: 10px;
+        }
+        
+        .btn-check:hover+.boton1{
+            color: $azul;
+            background-color: $amarillo-transparencia;
+        }
+        
+        .btn-check:checked+.boton1{
+            color: $azul;
+            background-color: $amarillo;
+        }
+
+}
+
+
+// estilos actividades
+
+#actividades{
+    @include secciones;
+}
+
+.grilla-actividades{
+    margin: 50px 100px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+
+        .mi-card{
+            border: none;
+            cursor: pointer;
+            transition: all 1s;
+        
+                &:hover{
+                    transform: scale(1.1);
+                }
+         
+                .alineacion-card{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 20px;
+
+                        h4{
+                            font-family: $font-titulos;
+                            font-weight: lighter;
+                            font-size: 40pt;
+                            line-height: 40pt;
+                            letter-spacing: 7pt;
+                            padding-top: 10px;
+                            color:$blanco;
+                        }
+
+                }
+
+        }
+
+}
+
+
+// estilos contacto
+
+#contacto{
+    @include secciones;
+}
+
+.grilla-contacto{
+    margin: 50px 100px 0px;
+    display: grid;
+    grid-template-columns: 40% auto;
+    column-gap: 100px;
+
+        form{
+            width: 100%;
+                
+                fieldset{
+                    border: none;
+                    display: flex;
+                    flex-direction: column;
+                
+                        legend{
+                            font-family: $font-textos;
+                            font-weight: 300;
+                            font-size: 16pt;
+                            letter-spacing: 4pt;
+                            color: $blanco;
+                            background-color: $azul;
+                            padding: 5px 10px;
+                            margin-bottom: 20px;
+                        }
+                        
+                        label{
+                            @extend legend;
+                            font-size: 13pt;
+                            letter-spacing: 3pt;
+                            color: $azul;
+                            background-color: transparent;
+                            padding: 0px;
+                            margin-bottom: 5px;
+                        }
+
+                        .datos{
+                            @extend label;
+                            font-size: 9pt;
+                            letter-spacing: 1pt;
+                            color: $gris;
+                            border: solid 1px $gris;
+                            width: 100%;
+                            height: 25px;
+                            padding: 5px 0px 0px 5px;
+                            margin-bottom: 15px;
+                        }
+                        
+                        .textarea{
+                            @extend .datos;
+                            height: 200px;
+                        }
+                        
+                        .checkbox{
+                            margin-bottom: 20px;
+                            
+                                .referencia-checkbox{
+                                    @extend label;
+                                    font-size: 9pt;
+                                    letter-spacing: 1pt;
+                                    color: $azul;
+                                    margin: 0px;
+                                }
+
+                        }
+                        
+                        .botonera-formulario{
+                            display: flex;
+                            flex-direction: row;
+               
+                                .boton3{
+                                    border: none;
+                                    border-radius: 0;
+                                    font-family: $font-titulos;
+                                    font-size: 15pt;
+                                    letter-spacing: 5pt;
+                                    text-align: center;
+                                    color: $azul;
+                                    cursor: pointer;
+                                    padding: 3px 0px 0px 7px;
+                                    margin-right: 15px;
+                                
+                                        &:hover{
+                                            background-color: $amarillo-transparencia;
+                                        }
+                                        
+                                        &:active{
+                                            background-color: $amarillo;
+                                        }
+
+                                }
+               
+                        }
+
+                }
+        
+        }
+
+}
+
+
+// estilos footer
+
+footer{
+    margin-top: 200px;
+    padding: 25px 100px;
+    background-color: $azul-oscuro;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+        ul{
+            margin: 0;
+            padding: 0;
+            
+                li{
+                    display: inline;
+                    list-style-type: none;
+                    padding: 5px 10px;
+                
+                        a{
+                            text-decoration: none;
+                            font-family: $font-textos;
+                            font-weight: 300;
+                            font-size: 11pt;
+                            letter-spacing: 4pt;
+                            color:$blanco;
+                            text-align: center;padding: 5px 3px 3px 7px;
+                            margin: 10px 0px;
+
+                                &:hover{
+                                    color: $azul-oscuro;
+                                    background-color: $blanco;
+                                }
+
+                        }
+
+                }
+        
+        }
+        
+        .logo-footer{
+            height: 70px;
+            width: 70px;
+        }
+        
+        .iconos{
+            width: 20px;
+            margin: 7px;
+        }
+        
+}
